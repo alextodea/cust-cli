@@ -1,6 +1,6 @@
 const User = require("./models/userSchema");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const {addToken} = require("../middleware/authentication");
 
 const register = async (req,res) => {
 
@@ -28,11 +28,8 @@ const login = async (req,res) => {
     const passwordsMatch = await bcrypt.compare(req.body.password,userInDb.password);
     if (!passwordsMatch) {return res.status(404).json({message: "Username/Password incorrect."});}
 
-    // sign token
-    const jwtPayload = {username:userInDb.username,id:userInDb._id};
-    const jwtOptions = {expiresIn: "1h"};
-    const token = jwt.sign(jwtPayload,process.env.JWT_KEY,jwtOptions);
-    req.token = token;
+    addToken(res);
+
     res.status(200).json({message: "Welcome " + req.body.username + "! You are now logged in!"});
 };
 
