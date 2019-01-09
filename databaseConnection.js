@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { databaseUrl } = require("./config");
+require('dotenv').config()
 
 // database options are set in order to avoid deprecation warnings
 const databaseOptions = { 
@@ -7,7 +7,7 @@ const databaseOptions = {
     useNewUrlParser: true
 };
 
-mongoose.connect(databaseUrl,databaseOptions);
+mongoose.connect(process.env.DB_URL,databaseOptions);
 mongoose.Promise = global.Promise;
 
 const dbConnection = mongoose.connection;
