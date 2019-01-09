@@ -22,7 +22,7 @@ const userLogoutData = {
 };
 
 const addNewCustData = {
-    command: "new <name> <email> <phone",
+    command: "new <name> <email> <phone>",
     alias: "n",
     description: "Add new customer",
     action: clientController.postNewCustomerData
