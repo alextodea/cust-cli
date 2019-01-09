@@ -1,0 +1,25 @@
+{
+  "name": "cust-cli",
+  "version": "1.0.0",
+  "description": "A CLI application for managing customers in a database. Users can register, log in, as well as perform various REST operation directly from the shell.",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alextodea/cust-cli.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Node.js",
+    "MongoDb",
+    "Shell"
+  ],
+  "author": "Alexandru Todea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alextodea/cust-cli/issues"
+  },
+  "homepage": "https://github.com/alextodea/cust-cli#readme"
+}
