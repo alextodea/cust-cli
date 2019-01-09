@@ -15,6 +15,7 @@ program
 
 addCommand(details.userRegisterData); // register user
 addCommand(details.userLoginData); // login user
+addCommand(details.userLogoutData); // logout user
 addCommand(details.addNewCustData); // add new customer
 addCommand(details.listCustData); // list customers
 addCommand(details.searchCustData); // search customer

@@ -14,8 +14,15 @@ const userLoginData = {
     action: clientController.postUserLoginData
 };
 
+const userLogoutData = {
+    command: "logout",
+    alias: "lo",
+    description: "Log out user",
+    action: clientController.postUserLogoutData
+};
+
 const addNewCustData = {
-    command: "new <firstname> <lastname> <email> <phone",
+    command: "new <name> <email> <phone",
     alias: "n",
     description: "Add new customer",
     action: clientController.postNewCustomerData
@@ -25,19 +32,20 @@ const listCustData = {
     command: "list",
     alias: "li",
     description: "List all customers",
-    action: ""
+    action: clientController.getListCustomerData
 };
 
 const searchCustData = {
     command: "search <name>",
     alias: "s",
     description: "Search customer",
-    action: ""
+    action: clientController.postSearchCustomerData
 };
 
 module.exports = {
     userRegisterData,
     userLoginData,
+    userLogoutData,
     addNewCustData,
     listCustData,
     searchCustData

@@ -10,9 +10,35 @@ const postUserLoginData = (username,password) => {
     post(body,"http://localhost:3000/user/login/");
 };
 
-const postNewCustomerData = (firstname,lastname,email,phone) => {
-    const body = {firstname,lastname,email,phone};
+const postUserLogoutData = () => {
+    const body = {token:false};
+    post(body,"http://localhost:3000/user/logout/");
+};
+
+const postNewCustomerData = (name,email,phone) => {
+    const body = {name,email,phone};
     post(body,"http://localhost:3000/customer/new/");
+};
+
+const postSearchCustomerData = (name) => {
+    const body = {name};
+    post(body,"http://localhost:3000/customer/search/");
+};
+
+const getListCustomerData = () => {
+    rp.get("http://localhost:3000/customer/list/")
+        .then(body => {
+            const customersArr = JSON.parse(body).message;
+            customersArr.forEach(user => {
+                console.log(user + "\n");
+            });
+            process.exit();
+        })
+        .catch(err => {
+            const parseErrorMsg = JSON.parse(err.error).message;
+            console.error(parseErrorMsg);
+            process.exit()
+        });
 };
 
 const post = (body,uri) => {
@@ -25,17 +51,23 @@ const post = (body,uri) => {
     };
 
     rp(options)
-        .then(function (body) {
+        .then(body => {
             console.log(body.message);
             process.exit();
         })
-        .catch(function (err) {
+        .catch(err => {
             console.error(err.error.message);
+            process.exit()
         });
 };
+
+
 
 module.exports = {
     postUserRegisterData,
     postUserLoginData,
-    postNewCustomerData
+    postUserLogoutData,
+    postNewCustomerData,
+    postSearchCustomerData,
+    getListCustomerData
 };

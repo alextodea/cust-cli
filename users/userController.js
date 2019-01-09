@@ -32,7 +32,12 @@ const login = async (req,res) => {
     res.status(200).json({message: "Welcome " + req.body.username + "! You are now logged in!"});
 };
 
+const logout = (req,res) => {
+    addTokenStatus(res,false);
+};
+ 
 module.exports = {
     register,
-    login
+    login,
+    logout
 };
