@@ -9,6 +9,8 @@ The user can perform the following operations:
 - List all customers: list
 - Search for customers: search <string>
   
+# For example: Open GIT console, and type cust-cli register exampleUsername examplePassword
+  
 The CLI application is built using the MVC design pattern and imitates a web application. I have used routes for different API endpoints, and in order to protect routes, a json file containing a proof of token is created on the "client" side (imitating the web flow).
 
 As a database, I have used the remote sandbox MongoDB from mlab.com.
