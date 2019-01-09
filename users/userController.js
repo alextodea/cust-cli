@@ -1,6 +1,6 @@
 const User = require("./models/userSchema");
 const bcrypt = require("bcryptjs");
-const {addToken} = require("../middleware/authentication");
+const {addTokenStatus} = require("../middleware/authentication");
 
 const register = async (req,res) => {
 
@@ -28,8 +28,7 @@ const login = async (req,res) => {
     const passwordsMatch = await bcrypt.compare(req.body.password,userInDb.password);
     if (!passwordsMatch) {return res.status(404).json({message: "Username/Password incorrect."});}
 
-    addToken(res);
-
+    addTokenStatus(res,true);
     res.status(200).json({message: "Welcome " + req.body.username + "! You are now logged in!"});
 };
 
