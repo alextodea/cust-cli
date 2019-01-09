@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "A CLI application for managing customers in a database. Users can register, log in, as well as perform various REST operation directly from the shell.",
   "main": "server.js",
+  "preferGlobal": true,
+  "bin": "./client/index.js",
   "scripts": {
     "test": "test",
     "start": "node ./server.js",

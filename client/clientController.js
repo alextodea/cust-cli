@@ -28,10 +28,8 @@ const postSearchCustomerData = (name) => {
 const getListCustomerData = () => {
     rp.get("http://localhost:3000/customer/list/")
         .then(body => {
-            const customersArr = JSON.parse(body).message;
-            customersArr.forEach(user => {
-                console.log(user + "\n");
-            });
+            const parsedBodyMsg = JSON.parse(body).message;
+            console.log(parsedBodyMsg);
             process.exit();
         })
         .catch(err => {

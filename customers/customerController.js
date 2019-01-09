@@ -32,5 +32,6 @@ exports.listCustomers = async (req,res) => {
 
 // iterate through array of cust objects and map the credentials
 const iterateThrough = (arrOfCustomerObjects) => {
-    return arrOfCustomerObjects.map(customer => customer.name + " " + customer.email + " " + customer.phone);    
+    const arrayOfCustomers = arrOfCustomerObjects.map(customer => customer.name + " " + customer.email + " " + customer.phone);
+    return arrayOfCustomers.join("\n");
 }
