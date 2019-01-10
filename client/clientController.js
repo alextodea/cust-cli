@@ -1,32 +1,39 @@
 const rp = require('request-promise');
+const serverUrl = "http://localhost:3000";
 
 const postUserRegisterData = (username,password) => {
     const body = {username,password};
-    post(body,"http://localhost:3000/user/register/");
+    const uri = serverUrl+"/user/register/";
+    post(body,uri);
 };
 
 const postUserLoginData = (username,password) => {
     const body = {username,password};
-    post(body,"http://localhost:3000/user/login/");
+    const uri = serverUrl+"/user/login/"
+    post(body,uri);
 };
 
 const postUserLogoutData = () => {
     const body = {token:false};
-    post(body,"http://localhost:3000/user/logout/");
+    const uri = serverUrl+"/user/logout/"
+    post(body,uri);
 };
 
 const postNewCustomerData = (name,email,phone) => {
     const body = {name,email,phone};
-    post(body,"http://localhost:3000/customer/new/");
+    const uri = serverUrl+"/customer/new/";
+    post(body,uri);
 };
 
 const postSearchCustomerData = (name) => {
     const body = {name};
-    post(body,"http://localhost:3000/customer/search/");
+    const uri = serverUrl+"/customer/search/";
+    post(body,uri);
 };
 
 const getListCustomerData = () => {
-    rp.get("http://localhost:3000/customer/list/")
+    const uri = serverUrl+"/customer/list/";
+    rp.get(uri)
         .then(body => {
             const parsedBodyMsg = JSON.parse(body).message;
             console.log(parsedBodyMsg);
