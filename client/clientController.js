@@ -26,6 +26,8 @@ const postSearchCustomerData = (name) => {
 };
 
 const getListCustomerData = () => {
+
+    //MIKKEL1 any reason why "localhost" is not in constant ?
     rp.get("http://localhost:3000/customer/list/")
         .then(body => {
             const parsedBodyMsg = JSON.parse(body).message;
@@ -39,8 +41,8 @@ const getListCustomerData = () => {
         });
 };
 
+//Mikkel1: great..you've made a function to handle post.
 const post = (body,uri) => {
-
     const options = {
         method: 'POST',
         uri,
