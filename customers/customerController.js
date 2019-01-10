@@ -25,8 +25,10 @@ exports.searchCustomer = async (req,res) => {
 };
 
 exports.listCustomers = async (req,res) => {
+    //MIkkel 2: Using queries directly in the rest method ? is this a good idea ? (Hint, can't reuse)
     const arrOfCustomerObjects = await Customer.find();
     const customers = await iterateThrough(arrOfCustomerObjects);
+    //Mikkel 2: Can this be also be made shorter ? (I see same res.status(200) etc many times
     res.status(200).json({message: customers});
 };
 
